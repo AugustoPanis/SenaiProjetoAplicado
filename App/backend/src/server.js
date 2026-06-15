@@ -1,6 +1,7 @@
+require('dotenv').config();
+
 const app = require("./app");
 const connectDatabase = require("./config/database");
-require('dotenv').config();
 
 connectDatabase();
 
@@ -11,7 +12,7 @@ const server = http.createServer(app);
 
 iniciarWebSocket(server);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
