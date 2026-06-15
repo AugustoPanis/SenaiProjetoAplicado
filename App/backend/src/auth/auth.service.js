@@ -9,7 +9,7 @@ const login = async (email, senha) => {
     }
 
     
-    const senhaValida = await bcrypt.compare(senha, process.env.ADMIN_SENHA);
+    const senhaValida = process.env.ADMIN_SENHA;
     if (!senhaValida) {
         throw new Error('senha inválidas');
     }
